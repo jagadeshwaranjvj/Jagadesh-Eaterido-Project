@@ -219,8 +219,8 @@ button:disabled {
 
 /* Footer layout and styles */
 .premium-footer {
-  margin-top: 60px;
-  padding: 50px 8%;
+  margin-top: 35px;
+  padding: 48px 8%;
   background: var(--surface);
   color: var(--text);
   border-top: 1px solid rgba(45, 45, 45, 0.08);
@@ -231,6 +231,24 @@ button:disabled {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 30px;
   align-items: start;
+}
+
+.social-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 127, 17, 0.14);
+  color: var(--primary);
+  transition: transform 0.2s ease, background 0.2s ease;
+  text-decoration: none;
+}
+
+.social-icon-link:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 127, 17, 0.22);
 }
 
 .footer-about {

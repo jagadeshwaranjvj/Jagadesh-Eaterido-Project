@@ -21,12 +21,20 @@
     margin: 0;
     text-decoration: none;
     font-weight: 800;
+    background: transparent !important;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .nav-logo-image {
     height: 38px;
+    width: auto;
     display: block;
     object-fit: contain;
+    background: transparent !important;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .nav-item {

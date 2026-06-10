@@ -10,8 +10,8 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 32px;
-    padding: 26px 8% 35px;
-    min-height: 68vh;
+    padding: 26px 8% 20px;
+    min-height: 62vh;
     background: radial-gradient(circle at 90% 10%, rgba(230, 57, 70, 0.14), transparent);
     overflow: hidden;
 }
@@ -183,7 +183,7 @@
 .hero-vintage-image {
     width: min(560px, 100%);
     display: block;
-    margin-top: 28px;
+    margin-top: 16px;
     border-radius: 12px;
     box-shadow: none;
     border: none;
