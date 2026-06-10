@@ -1,69 +1,147 @@
 <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="foodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e63946;stop-opacity:0.08" />
-      <stop offset="100%" style="stop-color:#ff7f11;stop-opacity:0.08" />
+    <!-- Gradients for realistic depth -->
+    <linearGradient id="bowlGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f8f0;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8e8e0;stop-opacity:1" />
     </linearGradient>
-    <filter id="shadowLight">
-      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-opacity="0.06"/>
+    
+    <radialGradient id="foodGradient" cx="40%" cy="40%">
+      <stop offset="0%" style="stop-color:#d4754f;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#b85a3a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b4513;stop-opacity:1" />
+    </radialGradient>
+    
+    <linearGradient id="steelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8e8e8;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#c0c0c0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a8a8a8;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="8" stdDeviation="8" flood-color="#000000" flood-opacity="0.15"/>
     </filter>
+    
+    <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feInset dx="0" dy="-3" stdDeviation="5" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+    
+    <radialGradient id="warmBg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" style="stop-color:#fff5e6;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#faf8f3;stop-opacity:0" />
+    </radialGradient>
   </defs>
   
-  <!-- Subtle background gradient -->
-  <rect width="500" height="500" fill="url(#foodGrad)" opacity="0.5"/>
+  <!-- Subtle warm background -->
+  <rect width="500" height="500" fill="#faf8f3"/>
   
-  <!-- Main plate base -->
-  <circle cx="250" cy="270" r="160" fill="none" stroke="#f5f5f0" stroke-width="4" opacity="0.7"/>
-  <circle cx="250" cy="270" r="155" fill="none" stroke="#e63946" stroke-width="1.2" opacity="0.2"/>
-  
-  <!-- Food bowl / container - main focus -->
-  <g filter="url(#shadowLight)">
-    <!-- Bowl outline -->
-    <ellipse cx="250" cy="260" rx="110" ry="85" fill="none" stroke="#e63946" stroke-width="3" opacity="0.8"/>
+  <!-- Main plate/bowl - realistic 3D effect -->
+  <g filter="url(#shadow)">
+    <!-- Plate back shadow -->
+    <ellipse cx="250" cy="290" rx="165" ry="90" fill="#00000008" opacity="0.3"/>
     
-    <!-- Bowl inner shadow / depth -->
-    <ellipse cx="250" cy="250" rx="108" ry="12" fill="none" stroke="#ff7f11" stroke-width="1.5" opacity="0.3"/>
+    <!-- Plate white ceramic -->
+    <ellipse cx="250" cy="260" rx="160" ry="95" fill="url(#bowlGradient)" stroke="#d0d0d0" stroke-width="2"/>
     
-    <!-- Food content - clean circles representing ingredients -->
-    <circle cx="220" cy="275" r="18" fill="#ff7f11" opacity="0.3"/>
-    <circle cx="250" cy="295" r="22" fill="#e63946" opacity="0.25"/>
-    <circle cx="280" cy="275" r="16" fill="#ff7f11" opacity="0.28"/>
-    <circle cx="250" cy="260" r="14" fill="#e63946" opacity="0.2"/>
+    <!-- Bowl rim highlight -->
+    <ellipse cx="250" cy="175" rx="155" ry="20" fill="#ffffff" opacity="0.6"/>
+    
+    <!-- Inside bowl shadow for depth -->
+    <ellipse cx="250" cy="270" rx="150" ry="85" fill="#00000010" opacity="0.4"/>
   </g>
   
-  <!-- Left utensil - fork -->
-  <g transform="translate(120, 290)">
-    <line x1="0" y1="0" x2="0" y2="80" stroke="#e63946" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-    <!-- Fork prongs -->
-    <line x1="-8" y1="80" x2="-8" y2="100" stroke="#e63946" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-    <line x1="0" y1="80" x2="0" y2="100" stroke="#e63946" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-    <line x1="8" y1="80" x2="8" y2="100" stroke="#e63946" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-    <!-- Handle accent -->
-    <circle cx="0" cy="-5" r="4" fill="#e63946" opacity="0.5"/>
+  <!-- Realistic food content - Indian curry/biryani -->
+  <g>
+    <!-- Base layer - rice/grain -->
+    <ellipse cx="250" cy="280" rx="135" ry="70" fill="#d4a574" opacity="0.6"/>
+    
+    <!-- Middle layer - curry/sauce -->
+    <path d="M 130 265 Q 130 240 250 235 Q 370 240 370 265 Q 370 285 250 290 Q 130 285 130 265" 
+          fill="url(#foodGradient)" opacity="0.9" filter="url(#innerShadow)"/>
+    
+    <!-- Food texture - realistic spice mix -->
+    <g opacity="0.8">
+      <!-- Curry highlights -->
+      <ellipse cx="200" cy="260" rx="25" ry="18" fill="#c85a2f" opacity="0.7"/>
+      <ellipse cx="280" cy="275" rx="30" ry="20" fill="#a64d24" opacity="0.75"/>
+      <ellipse cx="250" cy="250" rx="28" ry="16" fill="#d96f3f" opacity="0.65"/>
+      
+      <!-- Rice grains - realistic scattered appearance -->
+      <ellipse cx="150" cy="270" rx="4" ry="6" fill="#e8d5b7" opacity="0.8" transform="rotate(-25 150 270)"/>
+      <ellipse cx="180" cy="285" rx="3" ry="5" fill="#f0dcc0" opacity="0.75" transform="rotate(15 180 285)"/>
+      <ellipse cx="320" cy="290" rx="4" ry="5" fill="#e8d5b7" opacity="0.8" transform="rotate(-45 320 290)"/>
+      <ellipse cx="340" cy="265" rx="3" ry="6" fill="#f0dcc0" opacity="0.75" transform="rotate(30 340 265)"/>
+      <ellipse cx="270" cy="300" rx="3" ry="5" fill="#dcc7aa" opacity="0.7" transform="rotate(-10 270 300)"/>
+      
+      <!-- Spice specks -->
+      <circle cx="220" cy="245" r="1.5" fill="#6b3410" opacity="0.9"/>
+      <circle cx="260" cy="300" r="1.2" fill="#8b4513" opacity="0.85"/>
+      <circle cx="310" cy="255" r="1.5" fill="#704020" opacity="0.88"/>
+      <circle cx="190" cy="275" r="1" fill="#5c2e0f" opacity="0.8"/>
+    </g>
+    
+    <!-- Sauce shimmer/wetness effect -->
+    <ellipse cx="240" cy="255" rx="40" ry="25" fill="#ffffff" opacity="0.12"/>
   </g>
   
-  <!-- Right utensil - spoon -->
-  <g transform="translate(380, 310)">
-    <line x1="0" y1="0" x2="0" y2="75" stroke="#ff7f11" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-    <!-- Spoon bowl -->
-    <ellipse cx="0" cy="82" rx="9" ry="12" fill="none" stroke="#ff7f11" stroke-width="2.5" opacity="0.7"/>
-    <!-- Handle accent -->
-    <circle cx="0" cy="-5" r="4" fill="#ff7f11" opacity="0.5"/>
+  <!-- Realistic fork - left side -->
+  <g filter="url(#shadow)">
+    <g transform="translate(100, 320) rotate(-35)">
+      <!-- Fork handle -->
+      <rect x="-3" y="-60" width="6" height="65" fill="url(#steelGradient)" rx="3" 
+            stroke="#808080" stroke-width="0.5" opacity="0.95"/>
+      
+      <!-- Handle grip end -->
+      <circle cx="0" cy="-60" r="5" fill="url(#steelGradient)" stroke="#606060" stroke-width="1" opacity="0.9"/>
+      
+      <!-- Fork connection piece -->
+      <rect x="-5" y="0" width="10" height="8" fill="#b8b8b8" opacity="0.9"/>
+      
+      <!-- Fork prongs - 3 tines -->
+      <g stroke="#9a9a9a" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.92">
+        <line x1="-7" y1="8" x2="-8" y2="35"/>
+        <line x1="0" y1="8" x2="0" y2="36"/>
+        <line x1="7" y1="8" x2="8" y2="35"/>
+      </g>
+      
+      <!-- Prong tips -->
+      <g fill="#888888" opacity="0.85">
+        <circle cx="-8" cy="35" r="1.2"/>
+        <circle cx="0" cy="36" r="1.2"/>
+        <circle cx="8" cy="35" r="1.2"/>
+      </g>
+    </g>
   </g>
   
-  <!-- Top accent line (representing steam or aroma) -->
-  <g opacity="0.4">
-    <path d="M 200 140 Q 210 120 220 140" fill="none" stroke="#e63946" stroke-width="1.5" stroke-linecap="round"/>
-    <path d="M 250 130 Q 260 110 270 130" fill="none" stroke="#ff7f11" stroke-width="1.5" stroke-linecap="round"/>
-    <path d="M 280 145 Q 290 125 300 145" fill="none" stroke="#e63946" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Realistic spoon - right side -->
+  <g filter="url(#shadow)">
+    <g transform="translate(400, 340) rotate(35)">
+      <!-- Spoon handle -->
+      <rect x="-3" y="-65" width="6" height="70" fill="url(#steelGradient)" rx="3" 
+            stroke="#808080" stroke-width="0.5" opacity="0.95"/>
+      
+      <!-- Handle grip end -->
+      <circle cx="0" cy="-65" r="5" fill="url(#steelGradient)" stroke="#606060" stroke-width="1" opacity="0.9"/>
+      
+      <!-- Spoon bowl - 3D ellipse -->
+      <ellipse cx="0" cy="12" rx="14" ry="18" fill="#d0d0d0" stroke="#909090" stroke-width="1" opacity="0.9"/>
+      <ellipse cx="0" cy="8" rx="12" ry="14" fill="#e8e8e8" opacity="0.7"/>
+      <ellipse cx="-4" cy="6" rx="6" ry="8" fill="#ffffff" opacity="0.4"/>
+    </g>
   </g>
   
-  <!-- Minimal decorative accent dots -->
-  <g opacity="0.2">
-    <circle cx="140" cy="200" r="1.5" fill="#e63946"/>
-    <circle cx="360" cy="210" r="1.5" fill="#ff7f11"/>
-    <circle cx="150" cy="380" r="1.5" fill="#ff7f11"/>
-    <circle cx="350" cy="370" r="1.5" fill="#e63946"/>
+  <!-- Steam wisps - realistic and subtle -->
+  <g opacity="0.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 200 150 Q 185 130 200 110 Q 215 90 200 70" 
+          stroke="#e8a8a8" stroke-width="2" opacity="0.4"/>
+    <path d="M 250 145 Q 240 115 255 85 Q 270 60 250 40" 
+          stroke="#ffc0a8" stroke-width="2.5" opacity="0.35"/>
+    <path d="M 300 150 Q 315 125 310 95 Q 305 70 320 45" 
+          stroke="#e8a8a8" stroke-width="2" opacity="0.38"/>
   </g>
+  
+  <!-- Subtle background warmth gradient -->
+  <ellipse cx="250" cy="250" rx="200" ry="180" fill="url(#warmBg)"/>
 </svg>
 
