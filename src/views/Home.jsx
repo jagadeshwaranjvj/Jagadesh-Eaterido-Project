@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { OrderContext } from '../context/OrderContext';
 import { useNavigate } from 'react-router-dom';
-import vintageArt from '../assets/images/hand-drawn-indian-image.png';
+import vintageArt from '../assets/images/hero-food-illustration.svg';
 import eateridoBannerImg from '../assets/images/eaterido_bannerimg.png';
 import hotel1 from '../assets/images/hotel1.jpg';
 import hotel2 from '../assets/images/hotel2.jpg';
