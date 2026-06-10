@@ -1,0 +1,273 @@
+/* src/styles/tracking.css */
+
+.tracking-container {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.satellite-title {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin: 20px 0 10px 0;
+}
+
+.protocol-header {
+    margin-bottom: 40px;
+}
+
+.protocol-label {
+    font-size: 0.9rem;
+    color: var(--secondary);
+    margin-bottom: 10px;
+}
+
+.status-main {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-shadow: 0 0 20px var(--glow);
+}
+
+.stepper-wrapper {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 20px;
+    margin-top: 50px;
+}
+
+.connecting-line {
+    position: absolute;
+    top: 25px;
+    left: 50px;
+    right: 50px;
+    height: 2px;
+    background: rgba(45, 45, 45, 0.12);
+    z-index: 0;
+}
+
+.step-node {
+    z-index: 1;
+    text-align: center;
+    width: 100px;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    background: var(--surface);
+    color: var(--text);
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(45, 45, 45, 0.08);
+}
+
+.step-node.active .step-number {
+    background: var(--orange);
+    color: var(--dark-green);
+}
+
+.step-text {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: rgba(45, 45, 45, 0.78);
+    text-transform: uppercase;
+}
+
+.step-node.active .step-text {
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.command-console {
+    margin-top: 40px;
+    padding: 24px;
+    text-align: left;
+    border: 1px solid var(--border);
+    background: var(--surface-soft);
+    border-radius: 18px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.01), 0 10px 30px rgba(45, 45, 45, 0.04);
+}
+
+.console-title {
+    margin: 0 0 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--secondary);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.order-reference {
+    color: var(--mustard);
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.mission-failed {
+    border: 2px solid var(--primary);
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.success-box {
+    margin-top: 40px;
+    border: 2px solid var(--secondary);
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.active-glow {
+    box-shadow: 0 0 20px var(--mustard);
+    border-color: var(--mustard) !important;
+}
+
+.step-node.active .step-number {
+    background: var(--mustard);
+    color: var(--dark-green);
+    border-color: var(--mustard);
+}@media (max-width: 900px) {
+  .tracking-container {
+    padding: 40px 4%;
+  }
+
+  .stepper-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+    gap: 24px;
+  }
+
+  .connecting-line {
+    top: 25px;
+    left: 25px;
+    right: auto;
+    width: 2px;
+    height: calc(100% - 50px);
+    margin: 0;
+  }
+
+  .step-node {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .step-number {
+    margin: 0;
+  }
+
+  .step-text {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .tracking-container {
+    padding: 20px 4%;
+  }
+
+  .status-main {
+    font-size: 2.4rem;
+  }
+
+  .mission-failed,
+  .success-box {
+    padding: 30px;
+  }
+}
+
+/* Radar Pulse Empty State */
+.tracking-empty-card {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 50px 30px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    border-radius: 24px;
+}
+
+.tracking-empty-card h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.empty-description {
+    color: var(--text);
+    opacity: 0.7;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 10px 0;
+}
+
+.radar-pulse-container {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    background: rgba(255, 127, 17, 0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.radar-pulse-container::before,
+.radar-pulse-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid var(--secondary);
+    opacity: 0;
+    animation: radar-pulse 3s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+}
+
+.radar-pulse-container::after {
+    animation-delay: 1.5s;
+}
+
+.radar-icon-pulse {
+    color: var(--secondary);
+    animation: radar-sweep 6s linear infinite;
+}
+
+@keyframes radar-pulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes radar-sweep {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
